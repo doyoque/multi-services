@@ -4,7 +4,7 @@ A simple docker-compose.yml that can generate some services for better developme
 
 ## Prerequisites
 
-Make sure you have docker and docker-compose installed in your machine.
+Make sure you have `docker` and `docker-compose` installed in your machine.
 
 ## How to use
 
