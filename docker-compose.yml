@@ -1,0 +1,45 @@
+version: "3"
+services:
+  db_dev:
+    image: mysql
+    restart: always
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret_dev"
+      - "MYSQL_DATABASE=10ancy_dev"
+    ports:
+      - "33061:3306"
+    volumes:
+      - /opt/mysql_db/dev/:/var/lib/mysql
+    networks:
+      - dev-network
+  db_prod:
+    image: mysql
+    restart: always
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret_prod"
+      - "MYSQL_DATABASE=10ancy_prod"
+    ports:
+      - "33062:3306"
+    volumes:
+      - /opt/mysql_db/prod/:/var/lib/mysql
+    networks:
+      - prod-network
+  db_test:
+    image: mysql
+    restart: always
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret_test"
+      - "MYSQL_DATABASE=10ancy_test"
+    ports:
+      - "33063:3306"
+    volumes:
+      - /opt/mysql_db/test/:/var/lib/mysql
+    networks:
+      - test-network
+networks:
+  prod-network:
+    driver: bridge
+  dev-network:
+    driver: bridge
+  test-network:
+    driver: bridge
